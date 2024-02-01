@@ -1,0 +1,13 @@
+!table
+!version 300
+!charset WindowsLatin1
+
+Definition Table
+  File "154425-1_RGB.jpg"
+  Type "RASTER"
+  (358826.000000, 335729.000000) (0, 0) Label "NW",
+  (358826.000000, 335079.125000) (0, 5199) Label "SW",
+  (359475.875000, 335729.000000) (5199, 0) Label "NE",
+  (359475.875000, 335079.125000) (5199, 5199) Label "SE"
+  CoordSys Earth Projection 8, 79, "m", -2, 49, 0.9996012717, 400000, -100000
+  Units "m"
