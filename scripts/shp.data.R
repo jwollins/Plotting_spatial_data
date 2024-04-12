@@ -2,21 +2,7 @@
 # Author: J Collins
 # Date: 2023-06-28
 
-# Load packages
-library(ggplot2)
-library(dplyr)
-library(ggsci)
-library(sjPlot)
-library(sjmisc)
-library(sjlabelled)
-library(viridis)
-library(rgdal)
-library(broom)
-library(gridExtra)
-
-library(sf)
-library(raster)
-library(rasterVis)
+source(file = "scripts/packages.R")
 
 ## 01 LOAD DATA ####
 
@@ -28,6 +14,17 @@ bound.plots$Treatment[is.na(bound.plots$Treatment)] <- "Field"
 
 # check spdf layers
 plot(bound.plots, max.plot = 15)
+
+
+
+### plots #### 
+
+plots <- st_read("Plots/Full plots/all.plots.shp")
+
+# check spdf layers
+plot(plots, max.plot = 25)
+
+crs(plots)
 
 ### points ####
 
@@ -53,6 +50,9 @@ plot(ec.deep.0333, max.plot = 15)
 ec.deep.3051 <- st_read("EC/Deep EC/HARPAD08_3051_deep.shp")
 
 plot(ec.deep.3051, max.plot = 15)
+
+
+ec.dat <- read.csv(file = "EC/EC.both.fields.csv")
 
 
 ### Soil Texture - gamma-ray spectrometer ####
@@ -132,6 +132,15 @@ plot(buff.plot, max.plot = 15)
 samp.zone <- st_read("sample.zones/sample.zone.buffered.shp")
 
 plot(samp.zone, max.plot = 16)
+
+
+### UK MAP ####
+
+UK <- map_data(map = "world", region = c("uk")) # changed map to "world"
+
+counties <- st_read("UK/CTYUA_Dec_2019_UGCB_in_the_UK_2022_-1823623261068228014/CTYUA_Dec_2019_UGCB_in_the_UK.shp")
+
+counties <- st_transform(counties, crs = st_crs(buff.plot))
 
 
 

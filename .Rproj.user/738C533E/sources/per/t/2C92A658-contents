@@ -2,21 +2,12 @@
 # Author: J Collins
 # Date: 2023-06-28
 
-# Load packages
-library(ggplot2)
-library(dplyr)
-library(ggsci)
-library(sjPlot)
-library(sjmisc)
-library(sjlabelled)
-library(viridis)
-library(rgdal)
-library(broom)
-library(gridExtra)
 
-library(sf)
-library(raster)
-library(rasterVis)
+## 00 PACKAGES ####
+
+source("scripts/packages.R")
+
+
 
 ## 01 LOAD DATA ####
 
@@ -45,7 +36,19 @@ ggplot() + geom_sf(data = bound.plots, aes(fill = Treatment)) +
   theme(axis.title.x = element_text(size = 12, face = "bold")) + 
   theme(axis.title.y = element_text(size = 12, face = "bold")) +
   labs(subtitle = "") + 
-  theme(legend.position="bottom")
+  theme(legend.position="bottom") +
+  annotation_north_arrow(
+    location = "tl",
+    pad_x = unit(0.5, "in"),
+    pad_y = unit(0.25, "in"),
+    style = north_arrow_fancy_orienteering) +
+  annotation_scale(
+    location = "br",
+    pad_x = unit(1, "cm"),
+    pad_y = unit(1, "cm")) +
+  coord_sf(xlim = c(-2.6138, -2.604), 
+           ylim = c(52.912, 52.917),
+           crs = 4326)
 
 # save plot and dev off
 dev.off()
@@ -80,7 +83,19 @@ ggplot()+ geom_point(data = df.image, aes(y=Latitude, x=Longitude, color=Values)
   theme(axis.title.x = element_text(size = 12, face = "bold")) + 
   theme(axis.title.y = element_text(size = 12, face = "bold")) +
   labs(subtitle = "") + 
-  theme(legend.position="bottom")
+  theme(legend.position="bottom") +
+  annotation_north_arrow(
+    location = "tl",
+    pad_x = unit(0.5, "in"),
+    pad_y = unit(0.25, "in"),
+    style = north_arrow_fancy_orienteering) +
+  annotation_scale(
+    location = "br",
+    pad_x = unit(1, "cm"),
+    pad_y = unit(1, "cm")) +
+  coord_sf(xlim = c(-2.6138, -2.604), 
+           ylim = c(52.912, 52.917),
+           crs = 4326)
   
 
 # save plot and dev off
@@ -117,7 +132,19 @@ ggplot()+ geom_point(data = df.image, aes(y=Latitude, x=Longitude, color=Values)
   theme(axis.title.y = element_text(size = 12, face = "bold")) +
   labs(subtitle = "Buffered Plots (3m)") + 
   theme(legend.position="bottom") +
-  labs(fill = "Treatment")
+  labs(fill = "Treatment") +
+  annotation_north_arrow(
+    location = "tl",
+    pad_x = unit(0.5, "in"),
+    pad_y = unit(0.25, "in"),
+    style = north_arrow_fancy_orienteering) +
+  annotation_scale(
+    location = "br",
+    pad_x = unit(1, "cm"),
+    pad_y = unit(1, "cm")) +
+  coord_sf(xlim = c(-2.6138, -2.604), 
+           ylim = c(52.912, 52.917),
+           crs = 4326)
 
 
 # save plot and dev off
@@ -144,7 +171,6 @@ ggplot()+ geom_point(data = df.image, aes(y=Latitude, x=Longitude, color=Values)
                              # alpha("tomato2",alpha = 1), 
                              # alpha("grey",alpha = 0))) +
   ggtitle("Conservation Agriculture Systems Experiment") +
-  xlab(element_blank()) + 
   ylab("Latitude") + 
   xlab("Longitude") + 
   xlim(-2.6138, -2.604) +
@@ -154,7 +180,19 @@ ggplot()+ geom_point(data = df.image, aes(y=Latitude, x=Longitude, color=Values)
   theme(axis.title.y = element_text(size = 12, face = "bold")) +
   labs(subtitle = "Sampling Zone") + 
   theme(legend.position="bottom") +
-  labs(fill = "Sampling Zone")
+  labs(fill = "Sampling Zone") +
+  annotation_north_arrow(
+    location = "tl",
+    pad_x = unit(0.5, "in"),
+    pad_y = unit(0.25, "in"),
+    style = north_arrow_fancy_orienteering) +
+  annotation_scale(
+    location = "br",
+    pad_x = unit(1, "cm"),
+    pad_y = unit(1, "cm")) +
+  coord_sf(xlim = c(-2.6138, -2.604), 
+           ylim = c(52.912, 52.917),
+           crs = 4326)
 
 
 # save plot and dev off
@@ -200,7 +238,19 @@ ggplot()+ geom_point(data = df.image, aes(y=Latitude, x=Longitude, color=Values)
   theme(axis.title.y = element_text(size = 12, face = "bold")) +
   labs(subtitle = "Sampling Points") + 
   theme(legend.position="bottom") +
-  labs(fill = "Sampling Zones")
+  labs(fill = "Sampling Zones") +
+  annotation_north_arrow(
+    location = "tl",
+    pad_x = unit(0.5, "in"),
+    pad_y = unit(0.25, "in"),
+    style = north_arrow_fancy_orienteering) +
+  annotation_scale(
+    location = "br",
+    pad_x = unit(1, "cm"),
+    pad_y = unit(1, "cm")) +
+  coord_sf(xlim = c(-2.6138, -2.604), 
+           ylim = c(52.912, 52.917),
+           crs = 4326)
 
 # save plot and dev off
 dev.off()
@@ -236,7 +286,19 @@ ggplot()+ geom_point(data = df.image, aes(y=Latitude, x=Longitude, color=Values)
   theme(axis.title.x = element_text(size = 12, face = "bold")) + 
   theme(axis.title.y = element_text(size = 12, face = "bold")) +
   labs(subtitle = "Numbers indicate block") + 
-  theme(legend.position="bottom")
+  theme(legend.position="bottom") +
+  annotation_north_arrow(
+    location = "tl",
+    pad_x = unit(0.5, "in"),
+    pad_y = unit(0.25, "in"),
+    style = north_arrow_fancy_orienteering) +
+  annotation_scale(
+    location = "br",
+    pad_x = unit(1, "cm"),
+    pad_y = unit(1, "cm")) +
+  coord_sf(xlim = c(-2.6138, -2.604), 
+           ylim = c(52.912, 52.917),
+           crs = 4326)
 
 
 # save plot and dev off
@@ -273,7 +335,19 @@ ggplot()+ geom_point(data = df.image, aes(y=Latitude, x=Longitude, color=Values)
   theme(axis.title.x = element_text(size = 12, face = "bold")) + 
   theme(axis.title.y = element_text(size = 12, face = "bold")) +
   labs(subtitle = "Numbers indicate plot") + 
-  theme(legend.position="bottom")
+  theme(legend.position="bottom") +
+  annotation_north_arrow(
+    location = "tl",
+    pad_x = unit(0.5, "in"),
+    pad_y = unit(0.25, "in"),
+    style = north_arrow_fancy_orienteering) +
+  annotation_scale(
+    location = "br",
+    pad_x = unit(1, "cm"),
+    pad_y = unit(1, "cm")) +
+  coord_sf(xlim = c(-2.6138, -2.604), 
+           ylim = c(52.912, 52.917),
+           crs = 4326)
 
 
 # save plot and dev off
@@ -319,7 +393,19 @@ ggplot()+ geom_point(data = df.image, aes(y=Latitude, x=Longitude, color=Values)
   theme(axis.title.x = element_text(size = 12, face = "bold")) + 
   theme(axis.title.y = element_text(size = 12, face = "bold")) +
   labs(subtitle = "Electrical Conductivity - Shallow") + 
-  theme(legend.position="bottom")
+  theme(legend.position="bottom") +
+  annotation_north_arrow(
+    location = "tl",
+    pad_x = unit(0.5, "in"),
+    pad_y = unit(0.25, "in"),
+    style = north_arrow_fancy_orienteering) +
+  annotation_scale(
+    location = "br",
+    pad_x = unit(1, "cm"),
+    pad_y = unit(1, "cm")) +
+  coord_sf(xlim = c(-2.6138, -2.604), 
+           ylim = c(52.912, 52.917),
+           crs = 4326)
 
 
 # save plot and dev off
@@ -365,8 +451,75 @@ ggplot()+ geom_point(data = df.image, aes(y=Latitude, x=Longitude, color=Values)
   theme(axis.title.x = element_text(size = 12, face = "bold")) + 
   theme(axis.title.y = element_text(size = 12, face = "bold")) +
   labs(subtitle = "Electrical Conductivity - Deep") + 
-  theme(legend.position="bottom")
+  theme(legend.position="bottom") +
+  annotation_north_arrow(
+    location = "tl",
+    pad_x = unit(0.5, "in"),
+    pad_y = unit(0.25, "in"),
+    style = north_arrow_fancy_orienteering) +
+  annotation_scale(
+    location = "br",
+    pad_x = unit(1, "cm"),
+    pad_y = unit(1, "cm")) +
+  coord_sf(xlim = c(-2.6138, -2.604), 
+           ylim = c(52.912, 52.917),
+           crs = 4326)
 
+
+# save plot and dev off
+dev.off()
+
+
+### EC points ####
+
+
+#open png for file save and define size and resolution
+png(paste("map.plots/", "ec.points.map", ".png", sep=""),
+    width=1000, height=1000, res=150)
+
+
+ggplot() + geom_point(data = df.image, aes(y=Latitude, x=Longitude, color=Values),
+                     show.legend = FALSE) +
+  scale_colour_gradient(
+    low = "white",
+    high = "darkgrey",
+    space = "Lab",
+    na.value = "grey50",
+    guide = "colourbar",
+    aesthetics = "colour") +
+  geom_sf(data = bound.plots, aes(fill = Treatment)) + 
+  scale_fill_manual(values=c(alpha("turquoise3",alpha = 1), 
+                             alpha("tomato2",alpha = 1), 
+                             alpha("white",alpha = 1))) +
+  geom_point(data = ec.dat, 
+             size = 0.3, 
+             shape = 3,
+             aes(y = ycoord, 
+                 x = xcoord)) +
+  ggtitle("Conservation Agriculture Systems Experiment") +
+  xlab(element_blank()) + 
+  ylab("Latitude") + 
+  xlab("Longitude") + 
+  xlim(-2.6138, -2.604) +
+  ylim(52.912, 52.917) +
+  theme(plot.title = element_text(size = 14, face = "bold")) + 
+  theme(axis.title.x = element_text(size = 12, face = "bold")) + 
+  theme(axis.title.y = element_text(size = 12, face = "bold")) +
+  labs(subtitle = "EC Sampling Points") + 
+  theme(legend.position="bottom") +
+  labs(fill = "Treatment") +
+  annotation_north_arrow(
+    location = "tl",
+    pad_x = unit(0.5, "in"),
+    pad_y = unit(0.25, "in"),
+    style = north_arrow_fancy_orienteering) +
+  annotation_scale(
+    location = "br",
+    pad_x = unit(1, "cm"),
+    pad_y = unit(1, "cm")) +
+  coord_sf(xlim = c(-2.6138, -2.604), 
+           ylim = c(52.912, 52.917),
+           crs = 4326)
 
 # save plot and dev off
 dev.off()
@@ -409,7 +562,19 @@ ggplot()+ geom_point(data = df.image, aes(y=Latitude, x=Longitude, color=Values)
   theme(axis.title.x = element_text(size = 12, face = "bold")) + 
   theme(axis.title.y = element_text(size = 12, face = "bold")) +
   labs(subtitle = "Soil Texture - gamma-ray spectrometer") + 
-  theme(legend.position="bottom")
+  theme(legend.position="bottom") +
+  annotation_north_arrow(
+    location = "tl",
+    pad_x = unit(0.5, "in"),
+    pad_y = unit(0.25, "in"),
+    style = north_arrow_fancy_orienteering) +
+  annotation_scale(
+    location = "br",
+    pad_x = unit(1, "cm"),
+    pad_y = unit(1, "cm")) +
+  coord_sf(xlim = c(-2.6138, -2.604), 
+           ylim = c(52.912, 52.917),
+           crs = 4326)
 
 # save plot and dev off
 dev.off()
@@ -452,7 +617,19 @@ ggplot()+ geom_point(data = df.image, aes(y=Latitude, x=Longitude, color=Values)
   theme(axis.title.x = element_text(size = 12, face = "bold")) + 
   theme(axis.title.y = element_text(size = 12, face = "bold")) +
   labs(subtitle = "Soil Organic Carbon - gamma-ray spectrometer") + 
-  theme(legend.position="bottom") + labs(fill = "SOC (%)")
+  theme(legend.position="bottom") + labs(fill = "SOC (%)") +
+  annotation_north_arrow(
+    location = "tl",
+    pad_x = unit(0.5, "in"),
+    pad_y = unit(0.25, "in"),
+    style = north_arrow_fancy_orienteering) +
+  annotation_scale(
+    location = "br",
+    pad_x = unit(1, "cm"),
+    pad_y = unit(1, "cm")) +
+  coord_sf(xlim = c(-2.6138, -2.604), 
+           ylim = c(52.912, 52.917),
+           crs = 4326)
 
 # save plot and dev off
 dev.off()
@@ -485,10 +662,25 @@ ggplot()+ geom_point(data = df.image, aes(y=Latitude, x=Longitude, color=Values)
   theme(axis.title.x = element_text(size = 12, face = "bold")) + 
   theme(axis.title.y = element_text(size = 12, face = "bold")) +
   labs(subtitle = "Soil Organic Matter - gamma-ray spectrometer") + 
-  theme(legend.position="bottom") + labs(fill = "SOM (%)")
+  theme(legend.position="bottom") + labs(fill = "SOM (%)") +
+  annotation_north_arrow(
+    location = "tl",
+    pad_x = unit(0.5, "in"),
+    pad_y = unit(0.25, "in"),
+    style = north_arrow_fancy_orienteering) +
+  annotation_scale(
+    location = "br",
+    pad_x = unit(1, "cm"),
+    pad_y = unit(1, "cm")) +
+  coord_sf(xlim = c(-2.6138, -2.604), 
+           ylim = c(52.912, 52.917),
+           crs = 4326)
 
 # save plot and dev off
 dev.off()
+
+
+
 
 ### water ####
 
@@ -517,7 +709,19 @@ ggplot()+ geom_point(data = df.image, aes(y=Latitude, x=Longitude, color=Values)
   theme(axis.title.x = element_text(size = 12, face = "bold")) + 
   theme(axis.title.y = element_text(size = 12, face = "bold")) +
   labs(subtitle = "Plant Available Water - gamma-ray spectrometer") + 
-  theme(legend.position="bottom") + labs(fill = "PAWI (%)")
+  theme(legend.position="bottom") + labs(fill = "PAWI (%)") +
+  annotation_north_arrow(
+    location = "tl",
+    pad_x = unit(0.5, "in"),
+    pad_y = unit(0.25, "in"),
+    style = north_arrow_fancy_orienteering) +
+  annotation_scale(
+    location = "br",
+    pad_x = unit(1, "cm"),
+    pad_y = unit(1, "cm")) +
+  coord_sf(xlim = c(-2.6138, -2.604), 
+           ylim = c(52.912, 52.917),
+           crs = 4326)
 
 # save plot and dev off
 dev.off()
@@ -526,7 +730,250 @@ dev.off()
 
 
 
+### buffered plot yield with photo ####
+
+#open png for file save and define size and resolution
+png(paste("map.plots/", "yield.buff.plot.map.image", ".png", sep=""),
+    width=1000, height=1000, res=150)
+
+ggplot()+ geom_point(data = df.image, aes(y=Latitude, x=Longitude, color=Values),
+                     show.legend = FALSE) +
+  scale_colour_gradient(
+    low = "white",
+    high = "darkgrey",
+    space = "Lab",
+    na.value = "grey50",
+    guide = "colourbar",
+    aesthetics = "colour") +
+  geom_sf(data = buff.plot, aes(fill = Yield)) + 
+  scale_fill_gradient() +
+  ggtitle("Conservation Agriculture Systems Experiment") +
+  xlab(element_blank()) + 
+  ylab("Latitude") + 
+  xlab("Longitude") + 
+  xlim(-2.6138, -2.604) +
+  ylim(52.912, 52.917) +
+  theme(plot.title = element_text(size = 14, face = "bold")) + 
+  theme(axis.title.x = element_text(size = 12, face = "bold")) + 
+  theme(axis.title.y = element_text(size = 12, face = "bold")) +
+  labs(subtitle = "Buffered Plots (3m)") + 
+  theme(legend.position="bottom") +
+  labs(fill = "Yield (t/ha)") +
+  annotation_north_arrow(
+    location = "tl",
+    pad_x = unit(0.5, "in"),
+    pad_y = unit(0.25, "in"),
+    style = north_arrow_fancy_orienteering) +
+  annotation_scale(
+    location = "br",
+    pad_x = unit(1, "cm"),
+    pad_y = unit(1, "cm")) +
+  coord_sf(xlim = c(-2.6138, -2.604), 
+           ylim = c(52.912, 52.917),
+           crs = 4326)
+
+
+# save plot and dev off
+dev.off()
+
+
+### plot yield with photo ####
+
+#open png for file save and define size and resolution
+png(paste("map.plots/", "yield.plot.map.image", ".png", sep=""),
+    width=1000, height=1000, res=150)
+
+ggplot()+ geom_point(data = df.image, aes(y=Latitude, x=Longitude, color=Values),
+                     show.legend = FALSE) +
+  scale_colour_gradient(
+    low = "white",
+    high = "darkgrey",
+    space = "Lab",
+    na.value = "grey50",
+    guide = "colourbar",
+    aesthetics = "colour") +
+  geom_sf(data = plots, aes(fill = Yield)) + 
+  geom_sf_text(data = plots, 
+               aes(label = descriptio),
+               size=2,
+               family="sans",
+               color = "black", 
+               angle = 35) +
+  scale_fill_gradient(low = "red", 
+                      high = "green") +
+  ggtitle("Conservation Agriculture Systems Experiment") +
+  xlab(element_blank()) + 
+  ylab("Latitude") + 
+  xlab("Longitude") + 
+  xlim(-2.6138, -2.604) +
+  ylim(52.912, 52.917) +
+  theme(plot.title = element_text(size = 14, face = "bold")) + 
+  theme(axis.title.x = element_text(size = 12, face = "bold")) + 
+  theme(axis.title.y = element_text(size = 12, face = "bold")) +
+  labs(subtitle = "Winter Wheat var. Extase") + 
+  theme(legend.position="bottom") +
+  labs(fill = "Yield (t/ha)") +
+  annotation_north_arrow(
+    location = "tl",
+    pad_x = unit(0.5, "in"),
+    pad_y = unit(0.25, "in"),
+    style = north_arrow_fancy_orienteering) +
+  annotation_scale(
+    location = "br",
+    pad_x = unit(1, "cm"),
+    pad_y = unit(1, "cm")) +
+  coord_sf(xlim = c(-2.6138, -2.604), 
+           ylim = c(52.912, 52.917),
+           crs = 4326)
+
+
+# save plot and dev off
+dev.off()
+
+
+### Gross margin with photo ####
+
+#open png for file save and define size and resolution
+png(paste("map.plots/", "GM.plot.map.image", ".png", sep=""),
+    width=1000, height=1000, res=150)
+
+ggplot()+ geom_point(data = df.image, 
+                     aes(y=Latitude, 
+                         x=Longitude, 
+                         color=Values),
+                     show.legend = FALSE) +
+  scale_colour_gradient(
+    low = "white",
+    high = "darkgrey",
+    space = "Lab",
+    na.value = "grey50",
+    guide = "colourbar",
+    aesthetics = "colour") +
+  geom_sf(data = plots, aes(fill = GrossMarg)) + 
+  geom_sf_text(data = plots, 
+               aes(label = descriptio),
+               size=2,
+               family="sans",
+               color = "black", 
+               angle = 35) +
+  scale_fill_gradient(low = "red", 
+                      high = "green") +
+  ggtitle("Conservation Agriculture Systems Experiment") +
+  xlab(element_blank()) + 
+  ylab("Latitude") + 
+  xlab("Longitude") + 
+  xlim(-2.6138, -2.604) +
+  ylim(52.912, 52.917) +
+  theme(plot.title = element_text(size = 14, face = "bold")) + 
+  theme(axis.title.x = element_text(size = 12, face = "bold")) + 
+  theme(axis.title.y = element_text(size = 12, face = "bold")) +
+  labs(subtitle = "Winter Wheat var. Extase") + 
+  theme(legend.position="bottom") +
+  labs(fill = "Gross Margin (£/ha)") +
+  annotation_north_arrow(
+    location = "tl",
+    pad_x = unit(0.5, "in"),
+    pad_y = unit(0.25, "in"),
+    style = north_arrow_fancy_orienteering) +
+  annotation_scale(
+    location = "br",
+    pad_x = unit(1, "cm"),
+    pad_y = unit(1, "cm")) +
+  coord_sf(xlim = c(-2.6138, -2.604), 
+           ylim = c(52.912, 52.917),
+           crs = 4326)
+
+
+# save plot and dev off
+dev.off()
 
 
 
 
+
+### UK MAP ####
+
+#open png for file save and define size and resolution
+png(paste("map.plots/", "uk.map", ".png", sep=""),
+    width=1000, height=1000, res=150)
+
+uk <- ggplot() + geom_sf(data = counties, aes(fill = ctyua19nm == "Shropshire")) + 
+  scale_fill_manual(values=c(alpha("white",alpha = 1), 
+                             alpha("tomato2",alpha = 1))) +
+  ylab("Latitude") + 
+  xlab("Longitude") + 
+  theme(plot.title = element_text(size = 14, face = "bold")) + 
+  theme(axis.title.x = element_text(size = 12, face = "bold")) + 
+  theme(axis.title.y = element_text(size = 12, face = "bold")) +
+  labs(subtitle = "") + 
+  theme(legend.position="none") +
+  annotation_north_arrow(
+    location = "tl",
+    pad_x = unit(0.25, "in"),
+    pad_y = unit(0.25, "in"),
+    style = north_arrow_fancy_orienteering) +
+  annotation_scale(
+    location = "br",
+    pad_x = unit(0.5, "cm"),
+    pad_y = unit(0.5, "cm")) +
+  coord_sf(xlim = c(-10, 4), 
+           ylim = c(50, 60.5),
+           crs = 4326)
+
+# save plot and dev off
+dev.off()
+
+
+### SALOP map ####
+
+
+#open png for file save and define size and resolution
+png(paste("map.plots/", "salop.map", ".png", sep=""),
+    width=1000, height=1000, res=150)
+
+salop <- ggplot() + geom_sf(data = counties, aes(fill = ctyua19nm == "Shropshire")) + 
+  scale_fill_manual(values=c(alpha("white",alpha = 0.5), 
+                             alpha("tomato2",alpha = 0.75))) +
+  geom_point(size = 5, 
+             shape = 13,
+             aes(y = 52.915, 
+                 x = -2.608)) +
+  ylab("Latitude") + 
+  xlab("Longitude") + 
+  theme(plot.title = element_text(size = 14, face = "bold")) + 
+  theme(axis.title.x = element_text(size = 12, face = "bold")) + 
+  theme(axis.title.y = element_text(size = 12, face = "bold")) +
+  labs(subtitle = "") + 
+  theme(legend.position="none") +
+  annotation_north_arrow(
+    location = "tl",
+    pad_x = unit(0.25, "in"),
+    pad_y = unit(0.25, "in"),
+    style = north_arrow_fancy_orienteering) +
+  annotation_scale(
+    location = "br",
+    pad_x = unit(0.5, "cm"),
+    pad_y = unit(0.5, "cm")) +
+  coord_sf(xlim = c(-3.8, -1.7), 
+           ylim = c(52.2, 53.3),
+           crs = 4326)
+
+# save plot and dev off
+dev.off()
+
+
+### combined plot ####
+
+#open png for file save and define size and resolution
+png(paste("map.plots/", "salop.uk.map", ".png", sep=""),
+    width=1000, height=1000, res=150)
+
+ggarrange(uk, salop + rremove("ylab"), 
+          ncol = 2, 
+          nrow = 1, 
+          align = "hv",
+          vjust = 10, 
+          labels = c("A", "B")) 
+
+# save plot and dev off
+dev.off()
